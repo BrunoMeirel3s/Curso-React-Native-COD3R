@@ -17,10 +17,28 @@ import Diferenciar from './components/Diferenciar';
 import ParImpar from './components/ParImpar';
 import Pai from './components/relacao/Pai';
 import Filho from './components/relacao/Filho';
+import UsuarioLogado from './components/UsuarioLogado';
+import ListaProdutos from './components/Produtos/ListaProdutos';
+import ListaProdutosV2 from './components/Produtos/ListaProdutosV2';
+import DigiteSeuNome from './components/DigiteSeuNome';
+import Quadrado from './components/Layout/Quadrado';
 
 export default () => {
   return (
     <SafeAreaView style={style.App}>
+      <Quadrado />
+      <Quadrado cor="#900" />
+      <Quadrado cor="#090" />
+      <Quadrado cor="#009" />
+      {/*
+      <DigiteSeuNome />
+      <ListaProdutosV2 />
+      <ListaProdutos />
+      <UsuarioLogado usuario={{nome: 'Gui', email: 'gui@gui.com'}} />
+
+      <UsuarioLogado
+        usuario={{nome: 'Bruno', email: 'brunomeireles23@gmail.com'}}
+      />
       <Pai>
         <Filho nome="Fredsom" sobrenome="Meireles" />
         <Filho nome="Junior" sobrenome="Walmont" />
@@ -29,7 +47,6 @@ export default () => {
         <Filho nome="Jair" sobrenome="Meireles" />
         <Filho nome="Bruno" sobrenome="Meireles" />
       </Pai>
-      {/*
       <ParImpar num={3} />
       <Diferenciar />
       <Contadorv2 />
