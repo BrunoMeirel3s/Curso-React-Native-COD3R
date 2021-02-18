@@ -21,15 +21,14 @@ import UsuarioLogado from './components/UsuarioLogado';
 import ListaProdutos from './components/Produtos/ListaProdutos';
 import ListaProdutosV2 from './components/Produtos/ListaProdutosV2';
 import DigiteSeuNome from './components/DigiteSeuNome';
-import Quadrado from './components/Layout/Quadrado';
+import FlexboxV1 from './components/Layout/FlexboxV1';
+import FlexboxV2 from './components/Layout/FlexboxV2';
+import FlexboxV3 from './components/Layout/FlexboxV3';
 
 export default () => {
   return (
     <SafeAreaView style={style.App}>
-      <Quadrado />
-      <Quadrado cor="#900" />
-      <Quadrado cor="#090" />
-      <Quadrado cor="#009" />
+      <FlexboxV3 />
       {/*
       <DigiteSeuNome />
       <ListaProdutosV2 />
