@@ -24,12 +24,15 @@ import DigiteSeuNome from './components/DigiteSeuNome';
 import FlexboxV1 from './components/Layout/FlexboxV1';
 import FlexboxV2 from './components/Layout/FlexboxV2';
 import FlexboxV3 from './components/Layout/FlexboxV3';
+import FlexboxV4 from './components/Layout/FlexboxV4';
+import Mega from './components/mega/Mega';
 
 export default () => {
   return (
     <SafeAreaView style={style.App}>
-      <FlexboxV3 />
+      <Mega qtdNumeros={7} />
       {/*
+      <FlexboxV4 />
       <DigiteSeuNome />
       <ListaProdutosV2 />
       <ListaProdutos />
