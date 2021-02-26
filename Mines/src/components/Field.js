@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import params from '../params'; //parametros importados para configuração
 import Mine from './Mine';
+import Flag from './Flag';
 
 /**
  * Componente Field é o responsável por renderizar o espaço onde
@@ -9,7 +10,7 @@ import Mine from './Mine';
  */
 export default (props) => {
   //aqui estamos desestruturando os parametros passados na hora de usar o componente field
-  const {mined, opened, nearMines, exploded} = props;
+  const {mined, opened, nearMines, flagged, exploded} = props;
 
   //styleField será utilizado para armazenar os estilos
   const styleField = [styles.field];
@@ -23,8 +24,12 @@ export default (props) => {
     styleField.push(styles.exploded);
   }
 
+  if (flagged) {
+    styleField.push(styles.flagged);
+  }
+
   //caso nenhum parametro extra tenha sido informado iremos utilizar apenas o estilo regular
-  if (styleField.length === 1) {
+  if (!opened && !exploded) {
     styleField.push(styles.regular);
   }
 
@@ -58,6 +63,7 @@ export default (props) => {
         false
       )}
       {mined && opened ? <Mine /> : false}
+      {flagged && !opened ? <Flag /> : false}
     </View>
   );
 };
@@ -89,4 +95,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     borderColor: 'red',
   },
+  flagged: {},
 });
