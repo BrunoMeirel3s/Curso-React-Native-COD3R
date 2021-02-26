@@ -65,13 +65,19 @@ export default class App extends Component {
       const equals = operation === '=';
       const values = [...this.state.values];
       try {
+        /**
+         * usamos o try aqui pois caso a operação seja '=' iriamos tentar
+         * realizar algo como 2 = 3, desta forma estando incorreto, sendo 
+         * assim ao usarmos o '=' o fluxo segue para o catch que realiza
+         * a passagem do state.value[0] para a const values[0]
+         */
         //eval realiza o cálculo de expressões matemáticas
         values[0] = eval(`${values[0]} ${this.state.operation} ${values[1]}`);
       } catch (e) {
         values[0] = this.state.values[0];
       }
 
-      values[1] = 0;
+      values[1] = 0;//após realizar a operação acima o values[1] é zerado
       this.setState({
         displayValue: `${values[0]}`,
         operation: equals ? null : operation,
