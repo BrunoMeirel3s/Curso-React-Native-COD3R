@@ -17,7 +17,14 @@ export default (props) => {
    */
   const rows = props.board.map((row, r) => {
     const columns = row.map((field, c) => {
-      return <Field {...field} key={c} />;
+      return (
+        <Field
+          {...field}
+          key={c}
+          onSelect={() => props.onSelectField(r, c)}
+          onOpen={() => props.onOpenField(r, c)}
+        />
+      );
     });
     /**
      * Após percorrer as linhas e obter os fiels das colunas iremos retornar
