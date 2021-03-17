@@ -8,6 +8,10 @@ target 'Navegacao' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'NavegacaoTests' do
     inherit! :complete
     # Pods for testing
