@@ -1,8 +1,22 @@
+/**
+ * UserForm será utilizado para editar os dados do usuário
+ * ou realizar a inserção de um novo, de acordo com o parametro
+ * passado para este componente
+ */
 import React, {useState} from 'react';
 import {Text, View, TextInput, StyleSheet, Button} from 'react-native';
+import {useContext} from 'react';
+import UsersContext from '../context/UsersContext';
 
+/**
+ * UserForm recebe parametros através do route, quando chamamos
+ * route.navigation no componente UserList nós passamos 'user'
+ */
 export default ({route, navigation}) => {
+  //useState é utilizado para trabalhamos com o estado do usuário
   const [user, setUser] = useState(route.params ? route.params : {});
+
+  const {dispatch} = useContext(UsersContext);
   return (
     <>
       <View style={style.form}>
@@ -31,6 +45,10 @@ export default ({route, navigation}) => {
         <Button
           title="Salvar"
           onPress={() => {
+            dispatch({
+              type: user.id ? 'updateUser' : 'createUser',
+              payload: user,
+            });
             navigation.goBack();
           }}
         />

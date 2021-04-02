@@ -27,6 +27,23 @@ const actions = {
       users: state.users.filter(u => u.id !== user.id),
     };
   },
+
+  createUser(state, action) {
+    const user = action.payload;
+    user.id = Math.random();
+    return {
+      ...state,
+      users: [...state.users, user],
+    };
+  },
+
+  updateUser(state, action) {
+    const updatedUser = action.payload;
+    return {
+      ...state,
+      users: state.users.map(u => (u.id === updatedUser.id ? updatedUser : u)),
+    };
+  },
 };
 
 export const UsersProvider = props => {
