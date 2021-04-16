@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import commonStyles from '../commonStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -29,12 +29,15 @@ export default props => {
 
   return (
     <View style={styles.container}>
-      {/**
-       * checkContainer será a parte que terá o circulo que demonstra se a tarefa foi executada
-       * o componente será exibido com base na função getCheckView que irá checar se existe
-       * uma data de finalização da tarefa
-       */}
-      <View style={styles.checkContainer}>{getCheckView(props.doneAt)}</View>
+      <TouchableWithoutFeedback onPress={() => props.toggleTask(props.id)}>
+        {/**
+         * checkContainer será a parte que terá o circulo que demonstra se a tarefa foi executada
+         * o componente será exibido com base na função getCheckView que irá checar se existe
+         * uma data de finalização da tarefa
+         */}
+        <View style={styles.checkContainer}>{getCheckView(props.doneAt)}</View>
+      </TouchableWithoutFeedback>
+
       <View>
         <Text style={[styles.desc, doneOrNotStyle]}>{props.desc}</Text>
         <Text style={styles.date}>{formattedDate}</Text>
